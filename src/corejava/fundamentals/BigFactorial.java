@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class BigFactorial {
 
-
     private static BigInteger one = BigInteger.valueOf(1);
 
     public static BigInteger calcFactorial(BigInteger input) {
