@@ -1,14 +1,17 @@
-package corejava.inheritanceandreflection.shapes;
+package corejava.inheritanceandreflection;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Point {
 
-    private double x;
-    private double y;
+    protected double x;
+    protected double y;
 
     public Point(double x, double y) {
         this.setY(y);
         this.setX(x);
-
     }
 
     public double getX() {
@@ -25,6 +28,21 @@ public class Point {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(Field field: this.getClass().getDeclaredFields()){
+            try {
+                sb.append(field.get(this));
+                sb.append("\n");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return sb.toString();
     }
 
     @Override
@@ -47,6 +65,4 @@ public class Point {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
-
-
 }

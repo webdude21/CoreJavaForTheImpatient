@@ -1,4 +1,4 @@
-package corejava.inheritanceandreflection.shapes;
+package corejava.inheritanceandreflection;
 
 public class LabeledPoint extends Point {
 
