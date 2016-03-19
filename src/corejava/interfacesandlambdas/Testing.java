@@ -1,10 +1,13 @@
 package corejava.interfacesandlambdas;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Testing {
+
     public static void main(String[] args) {
         Random randomGenerator = new Random();
         Measurable[] measurables = new Measurable[10];
@@ -33,5 +36,31 @@ public class Testing {
 
         luckySort.sort(arrayList, (a, b) -> b.compareTo(a));
         System.out.println(String.join(", ", arrayList));
+
+        Runnable goshoRunnable = new Greeter(10, "Gosho");
+        Runnable peshoRunnable = new Greeter(10, "Pesho");
+
+        new Thread(goshoRunnable).start();
+        new Thread(peshoRunnable).start();
+
+        System.out.printf("Running in order:%n");
+        Greeter.runInOrder(goshoRunnable, peshoRunnable);
+        System.out.printf("Running together:%n");
+        Greeter.runTogether(goshoRunnable, peshoRunnable);
+
+        /* List directories and files */
+
+        Arrays.stream(getFolders("./")).forEach(f -> System.out.println(f.getName()));
+        Arrays.stream(getFiles("./src/corejava/interfacesandlambdas/", "java")).forEach(f -> System.out.println(f.getName()));
+    }
+
+    private static File[] getFolders(String filePath) {
+        File fileFolder = new File(filePath);
+        return fileFolder.listFiles(File::isDirectory);
+    }
+
+    private static File[] getFiles(String path, String extension) {
+        File file = new File(path);
+        return file.listFiles((dir, name) -> name.endsWith(extension));
     }
 }
