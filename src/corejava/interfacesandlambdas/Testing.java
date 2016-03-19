@@ -1,5 +1,6 @@
 package corejava.interfacesandlambdas;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -15,14 +16,22 @@ public class Testing {
 
         Sequence<Integer> intSequence = IntSequence.of(1, 2, 3, 4, 5, 6);
 
-        while (intSequence.hasNext()){
+        while (intSequence.hasNext()) {
             System.out.println(intSequence.next());
         }
 
-        Sequence<Integer> constantSequence = IntSequence.constant(3);
+        LuckySort luckySort = new LuckySort();
 
-        while (constantSequence.hasNext()){
-            System.out.println(constantSequence.next());
-        }
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add("pesho");
+        arrayList.add("abv");
+        arrayList.add("gosho");
+
+        luckySort.sort(arrayList, String::compareTo);
+        System.out.println(String.join(", ", arrayList));
+
+        luckySort.sort(arrayList, (a, b) -> b.compareTo(a));
+        System.out.println(String.join(", ", arrayList));
     }
 }
