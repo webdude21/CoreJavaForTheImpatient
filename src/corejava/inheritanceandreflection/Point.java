@@ -1,8 +1,6 @@
 package corejava.inheritanceandreflection;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class Point {
 
@@ -33,6 +31,7 @@ public class Point {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
         for(Field field: this.getClass().getDeclaredFields()){
             try {
                 sb.append(field.get(this));
