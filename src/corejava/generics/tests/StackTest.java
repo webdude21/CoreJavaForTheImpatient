@@ -64,6 +64,11 @@ public class StackTest {
         this.stack.pop();
     }
 
+    @Test(expected = IllegalStateException.class)
+    public void CallingPeekOnAnEmptyStackThrowsAnException() {
+        this.stack.peek();
+    }
+
     @Test
     public void PushingManyElementsWorks() {
         for (int i = 0; i <= TEST_CAPACITY; i++) {

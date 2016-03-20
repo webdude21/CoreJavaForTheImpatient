@@ -13,10 +13,14 @@ public class ListStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        if (arrayList.size() < 1) {
-            throw new IllegalStateException("Cannot use pop on an empty stack");
-        }
+        this.checkIfStackIsEmpty();
         return this.arrayList.remove(arrayList.size() - 1);
+    }
+
+    private void checkIfStackIsEmpty() {
+        if (arrayList.size() < 1) {
+            throw new IllegalStateException("Cannot use do this on an empty stack");
+        }
     }
 
     @Override
@@ -26,6 +30,7 @@ public class ListStack<E> implements Stack<E> {
 
     @Override
     public E peek() {
+        this.checkIfStackIsEmpty();
         return this.arrayList.get(arrayList.size() - 1);
     }
 }

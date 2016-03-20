@@ -23,11 +23,14 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        if (this.index < 1) {
-            throw new IllegalStateException("Cannot use pop on an empty stack");
-        }
-
+        checkIfStackIsEmpty();
         return this.array[--index];
+    }
+
+    private void checkIfStackIsEmpty() {
+        if (this.index < 1) {
+            throw new IllegalStateException("Cannot do this on an empty stack");
+        }
     }
 
     @Override
@@ -37,10 +40,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E peek() {
-        if (this.index < 1) {
-            throw new IllegalStateException("Cannot peek an empty stack");
-        }
-
+        checkIfStackIsEmpty();
         return array[index - 1];
     }
 
