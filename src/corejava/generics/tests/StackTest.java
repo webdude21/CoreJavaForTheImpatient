@@ -31,8 +31,8 @@ public class StackTest {
     @Parameters
     public static Collection<? extends Class<? extends Stack>> getParameters() {
         List<Class<? extends Stack>> classesToTest = new ArrayList<>();
-        classesToTest.add(ArrayStack.class);
         classesToTest.add(ListStack.class);
+        classesToTest.add(ArrayStack.class);
         return classesToTest;
     }
 
