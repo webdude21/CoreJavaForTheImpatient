@@ -55,6 +55,12 @@ public class Point {
     }
 
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        super.clone();
+        return new Point(getX(), getY());
+    }
+
+    @Override
     public int hashCode() {
         int result;
         long temp;

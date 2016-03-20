@@ -49,7 +49,6 @@ public class Testing {
         Greeter.runTogether(goshoRunnable, peshoRunnable);
 
         /* List directories and files */
-
         Arrays.stream(getFolders("./")).forEach(f -> System.out.println(f.getName()));
         Arrays.stream(getFiles("./src/corejava/interfacesandlambdas/", "java")).forEach(f -> System.out.println(f.getName()));
     }
@@ -62,5 +61,9 @@ public class Testing {
     private static File[] getFiles(String path, String extension) {
         File file = new File(path);
         return file.listFiles((dir, name) -> name.endsWith(extension));
+    }
+
+    private Runnable getRunnable(Runnable... tasks) {
+        return () -> Arrays.stream(tasks).forEach(Runnable::run);
     }
 }
