@@ -13,5 +13,5 @@ public abstract class Shape {
         point.setY(point.getY() + dy);
     }
 
-    public abstract Point getCenter ();
+    public abstract Point getCenter();
 }

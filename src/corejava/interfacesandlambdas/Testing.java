@@ -14,7 +14,7 @@ public class Testing {
 
         IntStream.range(0, measurables.length).forEach(i -> measurables[i] = new Employee(randomGenerator.nextDouble() * 100d));
 
-        System.out.printf("Average wage: %f%n", Employee.avarage(measurables));
+        System.out.printf("Average wage: %f%n", Employee.average(measurables));
         System.out.printf("Largest wage: %f%n", Employee.largest(measurables));
 
         Sequence<Integer> intSequence = IntSequence.of(1, 2, 3, 4, 5, 6);

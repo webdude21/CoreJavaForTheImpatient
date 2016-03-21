@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 public class PrintAllSubStrings {
 
     public static void main(String[] args) {
-        BufferedReader buffer=new BufferedReader(new InputStreamReader(System.in));
-        String input= null;
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        String input = null;
         try {
             input = buffer.readLine();
         } catch (IOException e) {
@@ -20,7 +20,7 @@ public class PrintAllSubStrings {
         for (int i = 0; i <= input.length(); i++) {
             for (int j = 0; i + j <= input.length(); j++) {
                 String output = input.substring(i, i + j);
-                if (!output.isEmpty()){
+                if (!output.isEmpty()) {
                     System.out.println(output);
                 }
             }

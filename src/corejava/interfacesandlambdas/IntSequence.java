@@ -25,17 +25,17 @@ public class IntSequence {
         };
     }
 
-   public static Sequence<Integer> constant(int constant){
-       return new Sequence<Integer>() {
-           @Override
-           public Integer next() {
-               return constant;
-           }
+    public static Sequence<Integer> constant(int constant) {
+        return new Sequence<Integer>() {
+            @Override
+            public Integer next() {
+                return constant;
+            }
 
-           @Override
-           public boolean hasNext() {
-               return true;
-           }
-       };
-   }
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+        };
+    }
 }

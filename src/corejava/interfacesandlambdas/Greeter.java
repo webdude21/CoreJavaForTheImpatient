@@ -12,18 +12,18 @@ public class Greeter implements Runnable {
         this.target = target;
     }
 
-    @Override
-    public void run() {
-        for (int i = 0; i < printCount; i++) {
-            System.out.printf("Hello, %s%n", target);
-        }
-    }
-
     public static void runTogether(Runnable... tasks) {
         Arrays.stream(tasks).forEach(task -> new Thread(task).start());
     }
 
     public static void runInOrder(Runnable... tasks) {
         Arrays.stream(tasks).forEach(Runnable::run);
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < printCount; i++) {
+            System.out.printf("Hello, %s%n", target);
+        }
     }
 }

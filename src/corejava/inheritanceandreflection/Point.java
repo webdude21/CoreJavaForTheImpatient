@@ -32,7 +32,7 @@ public class Point {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for(Field field: this.getClass().getDeclaredFields()){
+        for (Field field : this.getClass().getDeclaredFields()) {
             try {
                 sb.append(field.get(this));
                 sb.append("\n");
