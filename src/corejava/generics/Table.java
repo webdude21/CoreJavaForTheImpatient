@@ -3,24 +3,27 @@ package corejava.generics;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class Tabale<K extends Comparable, V> {
+public class Table<K extends Comparable, V> {
 
     private ArrayList<Entry> internalList = new ArrayList<>();
 
     public V get(K key) {
-        Optional<Entry> entry = internalList.stream().filter(x -> x.getKey().equals(key)).findAny();
-        if (entry.isPresent()) {
-            return entry.get().getValue();
-        } else {
-            return null;
-        }
+        return (V) internalList.stream().filter(x -> x.getKey().equals(key)).findAny().orElse(null);
     }
 
     public void put(K key, V value) {
         Entry newEntry = new Entry(key, value);
         boolean alreadyExists = internalList.contains(newEntry);
-        if (!alreadyExists){
+        if (!alreadyExists) {
             internalList.add(newEntry);
+        }
+    }
+
+    public void remove(K key) {
+        Optional<Entry> entry = internalList.stream().filter(x -> x.key.equals(key)).findFirst();
+
+        if (entry.isPresent()) {
+            internalList.remove(entry.get());
         }
     }
 
