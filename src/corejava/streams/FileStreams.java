@@ -10,24 +10,30 @@ public class FileStreams {
     private static final String pathToRead = "/usr/share/dict/words";
 
     public static void main(String[] args) {
+
         try {
-            BufferedReader targetStream = new BufferedReader(new FileReader(pathToRead));
-            System.out.printf("Max length is: %d", findMaxLength(targetStream.lines()));
+            findMaxLength(getStreamFromFile(pathToRead));
+            findAverageLength(getStreamFromFile(pathToRead));
+            findWordsWithOnlyUniqueLetters(getStreamFromFile(pathToRead));
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static Stream<String> getStreamFromFile(String filePath) throws FileNotFoundException {
+        return new BufferedReader(new FileReader(filePath)).lines();
     }
 
     private static void findWordsWithOnlyUniqueLetters(Stream<String> linesStream) {
         linesStream.filter(FileStreams::filterDistinctWords).forEach(System.out::println);
     }
 
-    private static double findAverageLength(Stream<String> linesStream) {
-        return linesStream.mapToInt(String::length).average().getAsDouble();
+    private static void findAverageLength(Stream<String> linesStream) {
+        linesStream.mapToInt(String::length).average().ifPresent(System.out::println);
     }
 
-    private static int findMaxLength(Stream<String> linesStream){
-        return linesStream.mapToInt(String::length).max().getAsInt();
+    private static void findMaxLength(Stream<String> linesStream) {
+        linesStream.mapToInt(String::length).max().ifPresent(System.out::println);
     }
 
     private static boolean filterDistinctWords(String str) {
