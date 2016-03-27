@@ -10,7 +10,6 @@ public class FileStreams {
     private static final String pathToRead = "/usr/share/dict/words";
 
     public static void main(String[] args) {
-
         try {
             findMaxLength(getStreamFromFile(pathToRead));
             findAverageLength(getStreamFromFile(pathToRead));
