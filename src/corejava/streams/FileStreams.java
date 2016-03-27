@@ -10,6 +10,7 @@ public class FileStreams {
     private static final String pathToRead = "/usr/share/dict/words";
 
     public static void main(String[] args) {
+
         try {
             BufferedReader targetStream = new BufferedReader(new FileReader(pathToRead));
             System.out.printf("Max length is: %d", findMaxLength(targetStream.lines()));
