@@ -1,6 +1,7 @@
 package corejava.generics;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ArraysExtended {
@@ -29,5 +30,17 @@ public class ArraysExtended {
         System.arraycopy(arrayOne, 0, resultArray, 0, arrayOne.length);
         System.arraycopy(arrayTwo, 0, resultArray, arrayOne.length, arrayTwo.length);
         return resultArray;
+    }
+
+    public static <E extends Comparable<E>> Pair<E> firstLast(ArrayList<E> list) {
+        return new Pair<>(list.get(0), list.get(list.size() - 1));
+    }
+
+    public static <E extends Comparable<E>> E max(ArrayList<E> list) {
+        return list.stream().max(Comparable::compareTo).get();
+    }
+
+    public static <E extends Comparable<E>> E min(ArrayList<E> list) {
+        return list.stream().min(Comparable::compareTo).get();
     }
 }
