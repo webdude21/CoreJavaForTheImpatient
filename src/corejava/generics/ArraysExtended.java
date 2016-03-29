@@ -3,6 +3,8 @@ package corejava.generics;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class ArraysExtended {
 
@@ -42,5 +44,9 @@ public class ArraysExtended {
 
     public static <E extends Comparable<E>> E min(ArrayList<E> list) {
         return list.stream().min(Comparable::compareTo).get();
+    }
+
+    public static <E extends Comparable<E>> Pair<E> minMax(ArrayList<E> list) {
+        return new Pair<>(min(list), max(list));
     }
 }
