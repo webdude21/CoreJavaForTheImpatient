@@ -2,35 +2,35 @@ package corejava.generics;
 
 public class Pair<E extends Comparable<E>> {
 
-    private E firstElement;
-    private E secondElement;
+	private E firstElement;
+	private E secondElement;
 
-    public Pair(E firstElement, E secondElement) {
-        setFirstElement(firstElement);
-        setSecondElement(secondElement);
-    }
+	public Pair(E firstElement, E secondElement) {
+		setFirstElement(firstElement);
+		setSecondElement(secondElement);
+	}
 
-    public E getFirstElement() {
-        return firstElement;
-    }
+	public E getFirstElement() {
+		return firstElement;
+	}
 
-    public void setFirstElement(E firstElement) {
-        this.firstElement = firstElement;
-    }
+	public void setFirstElement(E firstElement) {
+		this.firstElement = firstElement;
+	}
 
-    public E getSecondElement() {
-        return secondElement;
-    }
+	public E getSecondElement() {
+		return secondElement;
+	}
 
-    public void setSecondElement(E secondElement) {
-        this.secondElement = secondElement;
-    }
+	public void setSecondElement(E secondElement) {
+		this.secondElement = secondElement;
+	}
 
-    public E max() {
-        return firstElement.compareTo(secondElement) > 0 ? firstElement : secondElement;
-    }
+	public E max() {
+		return firstElement.compareTo(secondElement) > 0 ? firstElement : secondElement;
+	}
 
-    public E min() {
-        return firstElement.compareTo(secondElement) < 0 ? firstElement : secondElement;
-    }
+	public E min() {
+		return firstElement.compareTo(secondElement) < 0 ? firstElement : secondElement;
+	}
 }
