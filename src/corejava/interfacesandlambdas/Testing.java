@@ -54,13 +54,11 @@ public class Testing {
 	}
 
 	private static File[] getFolders(String filePath) {
-		File fileFolder = new File(filePath);
-		return fileFolder.listFiles(File::isDirectory);
+		return new File(filePath).listFiles(File::isDirectory);
 	}
 
 	private static File[] getFiles(String path, String extension) {
-		File file = new File(path);
-		return file.listFiles((dir, name) -> name.endsWith(extension));
+		return new File(path).listFiles((dir, name) -> name.endsWith(extension));
 	}
 
 	private Runnable getRunnable(Runnable... tasks) {
