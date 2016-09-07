@@ -20,7 +20,7 @@ class ThreadingFileContentSearch extends FileContentFinder {
 		System.out.println("Threads are ready to run");
 
 		for (Thread thread : threads) {
-			thread.run();
+			thread.start();
 		}
 	}
 }

@@ -42,15 +42,17 @@ class WordInFileFinder implements Runnable {
 				}
 
 				if (currentLine.contains(searchWord)) {
-					announceFileFound();
 					stopOtherThreads();
-					Thread.currentThread().interrupt();
+					announceFileFound();
 					return;
 				}
+
+				Thread.sleep(1);
 			}
 		} catch (IOException e) {
-			Thread.currentThread().interrupt();
 			System.out.println("Could't work with the file");
+		} catch (InterruptedException e) {
+			System.out.println("Interrupted");
 		}
 	}
 
