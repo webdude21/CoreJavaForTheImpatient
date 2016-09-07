@@ -4,32 +4,26 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Optional;
-import java.util.stream.Stream;
 
-class FileContentSearch {
-
-	private final String searchWord;
-
-	private final String searchPath;
+class FileContentSearch extends FileContentFinder {
 
 	FileContentSearch(String searchWord, String searchPath) {
-		this.searchWord = searchWord;
-		this.searchPath = searchPath;
+		super(searchWord, searchPath);
 	}
 
-	void search() {
-		Optional<File> file = getFiles(searchPath)
+	@Override
+	public void search() {
+		Optional<File> file = getFiles()
 				.parallel()
 				.peek(x -> System.out.printf("Looking into file %s%n", x.getPath()))
 				.filter(x -> contains(searchWord, x))
 				.findFirst();
 
 		if (file.isPresent()) {
-			System.out.printf("Found '%s' in %s", searchWord, file.get().getPath());
+			System.out.printf("Found '%s' in %s%n", searchWord, file.get().getPath());
 		} else {
-			System.out.printf("No file found that contains: '%s'", searchWord);
+			System.out.printf("No file found that contains: '%s%n'", searchWord);
 		}
 	}
 
@@ -39,9 +33,5 @@ class FileContentSearch {
 		} catch (IOException e) {
 			return false;
 		}
-	}
-
-	private Stream<File> getFiles(String path) {
-		return Arrays.stream(new File(path).listFiles());
 	}
 }

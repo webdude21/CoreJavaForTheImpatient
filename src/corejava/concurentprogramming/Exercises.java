@@ -3,13 +3,13 @@ package corejava.concurentprogramming;
 public class Exercises {
 
 	public static void main(String[] args) {
-		//fileSearch();
-		sortTest();
+		fileSearch();
+		//sortTest();
 	}
 
 	private static void fileSearch() {
-		FileContentSearch fileContentFinder = new FileContentSearch("Array", "src/corejava/generics");
-		fileContentFinder.search();
+		new FileContentSearch("Array", "src/corejava/generics").search();
+		new ThreadingFileContentSearch("Array", "src/corejava/generics").search();
 	}
 
 	private static void sortTest() {
