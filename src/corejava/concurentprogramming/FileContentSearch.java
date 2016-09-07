@@ -8,18 +8,18 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class FileContentSearch {
+class FileContentSearch {
 
 	private final String searchWord;
 
 	private final String searchPath;
 
-	FileContentSearch(String searchWord, String searchPath){
+	FileContentSearch(String searchWord, String searchPath) {
 		this.searchWord = searchWord;
 		this.searchPath = searchPath;
 	}
 
-	public void search() {
+	void search() {
 		Optional<File> file = getFiles(searchPath)
 				.parallel()
 				.peek(x -> System.out.printf("Looking into file %s%n", x.getPath()))
