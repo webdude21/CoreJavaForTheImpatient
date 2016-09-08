@@ -1,23 +1,18 @@
 package corejava.concurentprogramming;
 
 import java.io.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 class WordInFileFinder implements Runnable {
 
 	private final File file;
 	private final String searchWord;
-	private Thread[] threads;
+	private AtomicBoolean resultFound;
 
-	WordInFileFinder(File file, String searchWord, Thread[] threads) {
+	WordInFileFinder(File file, String searchWord, AtomicBoolean resultFound) {
 		this.file = file;
 		this.searchWord = searchWord;
-		this.threads = threads;
-	}
-
-	private void stopOtherThreads() {
-		for (Thread thread : threads) {
-			thread.interrupt();
-		}
+		this.resultFound = resultFound;
 	}
 
 	@Override
@@ -31,32 +26,31 @@ class WordInFileFinder implements Runnable {
 		try {
 			br = new BufferedReader(new FileReader(file));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.printf("File was not found %s%n", file.getName());
 		}
+
 		String currentLine;
 
 		try {
 			while ((currentLine = br.readLine()) != null) {
-				if (Thread.currentThread().isInterrupted()) {
+				if (resultFound.get()) {
+					System.out.printf("An answer has already been found, thread %s exiting ...%n",
+							Thread.currentThread().getName());
 					return;
 				}
 
 				if (currentLine.contains(searchWord)) {
-					stopOtherThreads();
+					resultFound.set(true);
 					announceFileFound();
 					return;
 				}
-
-				Thread.sleep(1);
 			}
 		} catch (IOException e) {
 			System.out.println("Could't work with the file");
-		} catch (InterruptedException e) {
-			System.out.println("Interrupted");
 		}
 	}
 
 	private void announceFileFound() {
-		System.out.printf("Found '%s' in %s%n", searchWord, file.getPath());
+		System.out.printf("Found '%s' in %s by thread %s%n", searchWord, file.getPath(), Thread.currentThread().getName());
 	}
 }
