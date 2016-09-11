@@ -32,17 +32,10 @@ class WordInFileFinder implements Runnable {
 		String currentLine;
 
 		try {
-			while ((currentLine = br.readLine()) != null) {
-				if (resultFound.get()) {
-					System.out.printf("An answer has already been found, thread %s exiting ...%n",
-							Thread.currentThread().getName());
-					return;
-				}
-
+			while ((currentLine = br.readLine()) != null && !resultFound.get()) {
 				if (currentLine.contains(searchWord)) {
 					resultFound.set(true);
 					announceFileFound();
-					return;
 				}
 			}
 		} catch (IOException e) {
