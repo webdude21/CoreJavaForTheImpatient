@@ -1,6 +1,6 @@
 package corejava.interfacesandlambdas;
 
-public class IntSequence {
+class IntSequence {
 	public static Sequence<Integer> of(int... sequance) {
 
 		return new Sequence<Integer>() {

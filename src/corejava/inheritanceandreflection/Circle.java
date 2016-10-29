@@ -12,7 +12,7 @@ public class Circle extends Shape {
 		return radius;
 	}
 
-	public void setRadius(double radius) {
+	private void setRadius(double radius) {
 		this.radius = radius;
 	}
 

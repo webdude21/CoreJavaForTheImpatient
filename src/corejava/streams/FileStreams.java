@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.stream.Stream;
 
-public class FileStreams {
+class FileStreams {
 
 	private static final String pathToRead = "/usr/share/dict/words";
 

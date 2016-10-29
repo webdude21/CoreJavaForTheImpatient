@@ -1,6 +1,6 @@
 package corejava.concurentprogramming;
 
-public class Exercises {
+class Exercises {
 
 	public static void main(String[] args) {
 		fileSearch();

@@ -1,6 +1,6 @@
 package corejava.inheritanceandreflection;
 
-public class Testing {
+class Testing {
 	public static void main(String[] args) {
 		Color color = Color.getRed();
 		System.out.println(color);

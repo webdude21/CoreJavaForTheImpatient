@@ -3,7 +3,7 @@ package corejava.streams;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Exercises {
+class Exercises {
 
 	public static void main(String[] args) {
 		Stream<String> streamOfWords = Stream.of("Long Long Word", "Shorter word", "short word", "letter");

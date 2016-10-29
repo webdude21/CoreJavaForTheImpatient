@@ -3,7 +3,7 @@ package corejava.fundamentals;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class MaxOfThree {
+class MaxOfThree {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[] input = new int[3];
@@ -12,6 +12,6 @@ public class MaxOfThree {
 			input[i] = scanner.nextInt();
 		}
 
-		System.out.println(Arrays.stream(input).max().getAsInt());
+		System.out.println(Arrays.stream(input).max().orElse(0));
 	}
 }

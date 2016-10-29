@@ -1,10 +1,10 @@
 package corejava.inheritanceandreflection;
 
-public abstract class Shape {
+abstract class Shape {
 
 	private Point point;
 
-	protected Shape(Point point) {
+	Shape(Point point) {
 		this.point = point;
 	}
 

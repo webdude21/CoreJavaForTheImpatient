@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class LuckySort {
+class LuckySort {
 
 	void sort(ArrayList<String> strings, Comparator<String> comp) {
 		while (!isSorted(strings, comp)) {

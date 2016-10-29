@@ -1,10 +1,10 @@
 package corejava.inheritanceandreflection;
 
-public class Line {
+class Line {
 	private Point from;
 	private Point to;
 
-	public Line(Point from, Point to) {
+	private Line(Point from, Point to) {
 		this.setFrom(from);
 		this.setTo(to);
 	}
@@ -13,7 +13,7 @@ public class Line {
 		return from;
 	}
 
-	public void setFrom(Point from) {
+	private void setFrom(Point from) {
 		this.from = from;
 	}
 
@@ -21,7 +21,7 @@ public class Line {
 		return to;
 	}
 
-	public void setTo(Point to) {
+	private void setTo(Point to) {
 		this.to = to;
 	}
 

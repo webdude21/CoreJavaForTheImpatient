@@ -28,11 +28,11 @@ public class LabeledPoint extends Point {
 		return result;
 	}
 
-	public String getLabel() {
+	private String getLabel() {
 		return label;
 	}
 
-	public void setLabel(String label) {
+	private void setLabel(String label) {
 		this.label = label;
 	}
 }

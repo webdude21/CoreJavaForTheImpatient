@@ -3,7 +3,7 @@ package corejava.fundamentals;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class LotteryGenerator {
+class LotteryGenerator {
 
 	public static void main(String[] args) {
 		ArrayList<Integer> numbers = new ArrayList<>();

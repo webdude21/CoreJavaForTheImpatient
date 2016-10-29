@@ -3,11 +3,11 @@ package corejava.fundamentals;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class BigFactorial {
+class BigFactorial {
 
 	private static BigInteger one = BigInteger.valueOf(1);
 
-	public static BigInteger calcFactorial(BigInteger input) {
+	private static BigInteger calcFactorial(BigInteger input) {
 		if (input.equals(one)) {
 			return one;
 		}

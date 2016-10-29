@@ -14,7 +14,7 @@ public class Pair<E extends Comparable<E>> {
 		return firstElement;
 	}
 
-	public void setFirstElement(E firstElement) {
+	private void setFirstElement(E firstElement) {
 		this.firstElement = firstElement;
 	}
 
@@ -22,7 +22,7 @@ public class Pair<E extends Comparable<E>> {
 		return secondElement;
 	}
 
-	public void setSecondElement(E secondElement) {
+	private void setSecondElement(E secondElement) {
 		this.secondElement = secondElement;
 	}
 

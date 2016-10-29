@@ -3,7 +3,7 @@ package corejava.generics;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class Table<K extends Comparable, V> {
+class Table<K extends Comparable, V> {
 
 	private ArrayList<Entry> internalList = new ArrayList<>();
 

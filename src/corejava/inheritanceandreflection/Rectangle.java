@@ -1,21 +1,21 @@
 package corejava.inheritanceandreflection;
 
-public class Rectangle {
+class Rectangle {
 	private Point topLeft;
 	private double width;
 	private double height;
 
-	Rectangle(Point topLeft, double width, double height) {
+	private Rectangle(Point topLeft, double width, double height) {
 		this.setTopLeft(topLeft);
 		this.setWidth(width);
 		this.setHeight(height);
 	}
 
-	public double getHeight() {
+	private double getHeight() {
 		return height;
 	}
 
-	public void setHeight(double height) {
+	private void setHeight(double height) {
 		this.height = height;
 	}
 
@@ -23,15 +23,15 @@ public class Rectangle {
 		return topLeft;
 	}
 
-	public void setTopLeft(Point topLeft) {
+	private void setTopLeft(Point topLeft) {
 		this.topLeft = topLeft;
 	}
 
-	public double getWidth() {
+	private double getWidth() {
 		return width;
 	}
 
-	public void setWidth(double width) {
+	private void setWidth(double width) {
 		this.width = width;
 	}
 

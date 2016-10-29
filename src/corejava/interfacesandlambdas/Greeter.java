@@ -2,7 +2,7 @@ package corejava.interfacesandlambdas;
 
 import java.util.Arrays;
 
-public class Greeter implements Runnable {
+class Greeter implements Runnable {
 
 	private final int printCount;
 	private String target;
