@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ArraysExtended {
+class ArraysExtended {
 
 	public static void main(String[] args) {
 		Integer[] arrayOne = {1, 2, 3};
@@ -13,14 +13,14 @@ public class ArraysExtended {
 		System.out.println(Arrays.toString(ArraysExtended.concat(arrayOne, arrayTwo)));
 	}
 
-	public static <T> T[] swap(int i, int j, T... values) {
+	private static <T> T[] swap(int i, int j, T... values) {
 		T temp = values[i];
 		values[i] = values[j];
 		values[j] = temp;
 		return values;
 	}
 
-	public static <T> T[] concat(T[] arrayOne, T[] arrayTwo) {
+	private static <T> T[] concat(T[] arrayOne, T[] arrayTwo) {
 		@SuppressWarnings("unchecked")
 		T[] resultArray = (T[]) Array.newInstance(arrayOne.getClass().getComponentType(), arrayOne.length + arrayTwo.length);
 		System.arraycopy(arrayOne, 0, resultArray, 0, arrayOne.length);
@@ -32,11 +32,11 @@ public class ArraysExtended {
 		return new Pair<>(list.get(0), list.get(list.size() - 1));
 	}
 
-	public static <E extends Comparable<E>> E max(ArrayList<E> list) {
+	private static <E extends Comparable<E>> E max(ArrayList<E> list) {
 		return list.stream().max(Comparable::compareTo).get();
 	}
 
-	public static <E extends Comparable<E>> E min(ArrayList<E> list) {
+	private static <E extends Comparable<E>> E min(ArrayList<E> list) {
 		return list.stream().min(Comparable::compareTo).get();
 	}
 
