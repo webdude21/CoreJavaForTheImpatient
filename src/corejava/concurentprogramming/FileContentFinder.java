@@ -5,21 +5,21 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 abstract class FileContentFinder {
-	final String searchWord;
-	private final String searchPath;
+  final String searchWord;
+  private final String searchPath;
 
-	FileContentFinder(String searchWord, String searchPath) {
-		this.searchPath = searchPath;
-		this.searchWord = searchWord;
-	}
+  FileContentFinder(String searchWord, String searchPath) {
+    this.searchPath = searchPath;
+    this.searchWord = searchWord;
+  }
 
-	public abstract void search();
+  public abstract void search();
 
-	Stream<File> getFiles() {
-		return Arrays.stream(new File(searchPath).listFiles());
-	}
+  Stream<File> getFiles() {
+    return Arrays.stream(new File(searchPath).listFiles());
+  }
 
-	File[] getFilesAsArray() {
-		return new File(searchPath).listFiles();
-	}
+  File[] getFilesAsArray() {
+    return new File(searchPath).listFiles();
+  }
 }

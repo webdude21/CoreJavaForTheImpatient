@@ -2,11 +2,11 @@ package corejava.generics;
 
 public interface Stack<E> {
 
-	void push(E element);
+  void push(E element);
 
-	E pop();
+  E pop();
 
-	boolean isEmpty();
+  boolean isEmpty();
 
-	E peek();
+  E peek();
 }

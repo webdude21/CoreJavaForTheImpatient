@@ -1,7 +1,7 @@
 package corejava.interfacesandlambdas;
 
 public interface Sequence<T> {
-	T next();
+  T next();
 
-	boolean hasNext();
+  boolean hasNext();
 }

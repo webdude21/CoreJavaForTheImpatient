@@ -1,5 +1,5 @@
 package corejava.interfacesandlambdas;
 
 interface Measurable {
-	double getMeasurable();
+  double getMeasurable();
 }
