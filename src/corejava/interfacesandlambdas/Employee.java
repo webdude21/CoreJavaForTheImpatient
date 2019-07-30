@@ -1,7 +1,6 @@
 package corejava.interfacesandlambdas;
 
 import java.util.Arrays;
-import java.util.OptionalDouble;
 
 public class Employee implements Measurable {
 
@@ -12,12 +11,11 @@ public class Employee implements Measurable {
   }
 
   public static double average(Measurable[] objects) {
-    OptionalDouble result = Arrays.stream(objects).mapToDouble(Measurable::getMeasurable).average();
-    return result.isPresent() ? result.getAsDouble() : 0d;
+    return Arrays.stream(objects).mapToDouble(Measurable::getMeasurable).average().orElse(0);
   }
 
   public static double largest(Measurable[] objects) {
-    return Arrays.stream(objects).mapToDouble(Measurable::getMeasurable).max().getAsDouble();
+    return Arrays.stream(objects).mapToDouble(Measurable::getMeasurable).max().orElse(0);
   }
 
   @Override

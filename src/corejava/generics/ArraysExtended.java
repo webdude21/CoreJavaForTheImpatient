@@ -37,7 +37,7 @@ class ArraysExtended {
   }
 
   private static <E extends Comparable<E>> E min(ArrayList<E> list) {
-    return list.stream().min(Comparable::compareTo).orElse(list.get(0))
+    return list.stream().min(Comparable::compareTo).orElse(list.get(0));
   }
 
   public static <E extends Comparable<E>> Pair<E> minMax(ArrayList<E> list) {
